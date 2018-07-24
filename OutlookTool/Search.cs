@@ -7,12 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Outlook = NetOffice.OutlookApi;
+using Outlook = Microsoft.Office.Interop.Outlook;
 
 namespace OutlookTool
 {
     public partial class Search : Form
     {
+
         public Search()
         {
             InitializeComponent();
@@ -20,20 +21,38 @@ namespace OutlookTool
 
         private void Search_Load(object sender, EventArgs e)
         {
-            //Get folder names
-            
-            listFolders.Columns.Add("Folder Name");
-            listFolders.Columns[0].Width = listFolders.ClientSize.Width;
-            //Outlook.Application app = new Outlook.Application();
-            Outlook.Folders folders;
-            folders = Outlook.Folders.GetActiveInstance(true);
-            foreach (var folder in folders)
+
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            Outlook.Application application = new Outlook.Application();
+
+            var ns = application.Session;
+            var inbox = ns.GetDefaultFolder(Outlook.OlDefaultFolders.olFolderInbox);
+            var item = inbox.Items;
+            string searchFor = boxSearchfor.Text.Trim();
+            List<string> subject = new List<string>();
+
+            listResult.Columns.Add("Results");
+
+            foreach (var inboxitem in inbox.Items)
             {
-                ListViewItem item = new ListViewItem();
-                item.Text = folder.Name;
-                listFolders.Items.Add(item);
+                if (inboxitem is Outlook.MailItem) //Item could be meeting invite etc...
+                {
+                    Outlook.MailItem mail = new Outlook.MailItem(); //bug need to fix.
+                    subject.Add(mail.Subject);
+
+                    //Update listview for testing.
+                    ListViewItem viewItem = new ListViewItem();
+                    viewItem.Text = mail.Subject;
+                    listResult.Items.Add(viewItem);
+                }
+                break;
             }
-            
+
+
+            Dispose();
         }
     }
 }
