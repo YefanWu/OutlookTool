@@ -29,7 +29,7 @@ namespace OutlookTool
             Outlook.Application application = new Outlook.Application();
 
             var ns = application.Session;
-            var inbox = ns.GetDefaultFolder(Outlook.OlDefaultFolders.olFolderInbox);
+            var inbox = ns.GetDefaultFolder(Outlook.OlDefaultFolders.olFolderInbox);//Now we can only search in Inbox. Not subfolders.
             var item = inbox.Items;
             string searchFor = boxSearchfor.Text.Trim();
             List<string> subject = new List<string>();
@@ -40,19 +40,40 @@ namespace OutlookTool
             {
                 if (inboxitem is Outlook.MailItem) //Item could be meeting invite etc...
                 {
-                    Outlook.MailItem mail = new Outlook.MailItem(); //bug need to fix.
-                    subject.Add(mail.Subject);
+                    Outlook.MailItem mail = inboxitem as Outlook.MailItem;
+                    try
+                    {
+                        if (mail.Subject.Contains(searchFor)) //If the email do not have a subject, will cause exception here. We can ignore.
+                        {
+                            subject.Add(mail.Subject);
+                        }
+                    }
+                    catch (Exception)
+                    {
 
-                    //Update listview for testing.
-                    ListViewItem viewItem = new ListViewItem();
-                    viewItem.Text = mail.Subject;
-                    listResult.Items.Add(viewItem);
+                        continue;
+                    }
+
                 }
-                break;
+
             }
 
+            //Update listview
+            listResult.BeginUpdate();
+            foreach (var result in subject)
+            {
+                ListViewItem viewItem = new ListViewItem();
+                viewItem.Text = result;
+                listResult.Items.Add(viewItem);
+            }
 
-            Dispose();
+            listResult.EndUpdate();
+
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            listResult.Clear();
         }
     }
 }

@@ -61,7 +61,7 @@
             this.listResult.Size = new System.Drawing.Size(496, 296);
             this.listResult.TabIndex = 4;
             this.listResult.UseCompatibleStateImageBehavior = false;
-            this.listResult.View = System.Windows.Forms.View.List;
+            this.listResult.View = System.Windows.Forms.View.Details;
             // 
             // label3
             // 
@@ -103,6 +103,7 @@
             this.btnClear.TabIndex = 8;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // Search
             // 
