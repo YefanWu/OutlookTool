@@ -16,5 +16,12 @@ namespace OutlookTool
         {
             InitializeComponent();
         }
+
+        private void btnShowSearch_Click(object sender, EventArgs e)
+        {
+            //Pop up the Search window. 
+            Search formSearch = new Search();
+            formSearch.Show();
+        }
     }
 }
