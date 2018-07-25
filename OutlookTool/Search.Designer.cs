@@ -38,13 +38,14 @@
             this.btnGetfolder = new System.Windows.Forms.Button();
             this.listBoxFolders = new System.Windows.Forms.ListBox();
             this.lbFolderCount = new System.Windows.Forms.Label();
+            this.btnTest = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(9, 20);
+            this.label2.Location = new System.Drawing.Point(9, 18);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(70, 15);
             this.label2.TabIndex = 2;
@@ -52,16 +53,16 @@
             // 
             // boxSearchfor
             // 
-            this.boxSearchfor.Location = new System.Drawing.Point(86, 20);
+            this.boxSearchfor.Location = new System.Drawing.Point(86, 18);
             this.boxSearchfor.Name = "boxSearchfor";
-            this.boxSearchfor.Size = new System.Drawing.Size(308, 20);
+            this.boxSearchfor.Size = new System.Drawing.Size(308, 21);
             this.boxSearchfor.TabIndex = 3;
             // 
             // listResult
             // 
-            this.listResult.Location = new System.Drawing.Point(12, 90);
+            this.listResult.Location = new System.Drawing.Point(12, 83);
             this.listResult.Name = "listResult";
-            this.listResult.Size = new System.Drawing.Size(496, 296);
+            this.listResult.Size = new System.Drawing.Size(496, 274);
             this.listResult.TabIndex = 4;
             this.listResult.UseCompatibleStateImageBehavior = false;
             this.listResult.View = System.Windows.Forms.View.Details;
@@ -70,7 +71,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(400, 22);
+            this.label3.Location = new System.Drawing.Point(400, 20);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(101, 13);
             this.label3.TabIndex = 5;
@@ -80,7 +81,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(9, 72);
+            this.label4.Location = new System.Drawing.Point(9, 66);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(53, 15);
             this.label4.TabIndex = 6;
@@ -89,9 +90,9 @@
             // btnSearch
             // 
             this.btnSearch.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.Location = new System.Drawing.Point(106, 404);
+            this.btnSearch.Location = new System.Drawing.Point(106, 373);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(75, 23);
+            this.btnSearch.Size = new System.Drawing.Size(75, 21);
             this.btnSearch.TabIndex = 7;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
@@ -100,9 +101,9 @@
             // btnClear
             // 
             this.btnClear.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClear.Location = new System.Drawing.Point(12, 404);
+            this.btnClear.Location = new System.Drawing.Point(12, 373);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(75, 23);
+            this.btnClear.Size = new System.Drawing.Size(75, 21);
             this.btnClear.TabIndex = 8;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = true;
@@ -110,9 +111,9 @@
             // 
             // btnGetfolder
             // 
-            this.btnGetfolder.Location = new System.Drawing.Point(535, 61);
+            this.btnGetfolder.Location = new System.Drawing.Point(535, 56);
             this.btnGetfolder.Name = "btnGetfolder";
-            this.btnGetfolder.Size = new System.Drawing.Size(128, 23);
+            this.btnGetfolder.Size = new System.Drawing.Size(128, 21);
             this.btnGetfolder.TabIndex = 10;
             this.btnGetfolder.Text = "Get Folder Name";
             this.btnGetfolder.UseVisualStyleBackColor = true;
@@ -121,28 +122,39 @@
             // listBoxFolders
             // 
             this.listBoxFolders.FormattingEnabled = true;
-            this.listBoxFolders.Location = new System.Drawing.Point(535, 91);
+            this.listBoxFolders.ItemHeight = 12;
+            this.listBoxFolders.Location = new System.Drawing.Point(535, 84);
             this.listBoxFolders.Name = "listBoxFolders";
-            this.listBoxFolders.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.listBoxFolders.Size = new System.Drawing.Size(180, 290);
+            this.listBoxFolders.Size = new System.Drawing.Size(180, 268);
             this.listBoxFolders.TabIndex = 11;
             // 
             // lbFolderCount
             // 
             this.lbFolderCount.AutoSize = true;
             this.lbFolderCount.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbFolderCount.Location = new System.Drawing.Point(432, 404);
+            this.lbFolderCount.Location = new System.Drawing.Point(432, 373);
             this.lbFolderCount.Name = "lbFolderCount";
             this.lbFolderCount.Size = new System.Drawing.Size(41, 15);
             this.lbFolderCount.TabIndex = 12;
             this.lbFolderCount.Text = "label1";
             this.lbFolderCount.Visible = false;
             // 
+            // btnTest
+            // 
+            this.btnTest.Location = new System.Drawing.Point(616, 15);
+            this.btnTest.Name = "btnTest";
+            this.btnTest.Size = new System.Drawing.Size(75, 23);
+            this.btnTest.TabIndex = 13;
+            this.btnTest.Text = "test";
+            this.btnTest.UseVisualStyleBackColor = true;
+            this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
+            // 
             // Search
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(765, 450);
+            this.ClientSize = new System.Drawing.Size(765, 415);
+            this.Controls.Add(this.btnTest);
             this.Controls.Add(this.lbFolderCount);
             this.Controls.Add(this.listBoxFolders);
             this.Controls.Add(this.btnGetfolder);
@@ -172,5 +184,6 @@
         private System.Windows.Forms.Button btnGetfolder;
         private System.Windows.Forms.ListBox listBoxFolders;
         private System.Windows.Forms.Label lbFolderCount;
+        private System.Windows.Forms.Button btnTest;
     }
 }

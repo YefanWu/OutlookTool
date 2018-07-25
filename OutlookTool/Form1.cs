@@ -23,5 +23,10 @@ namespace OutlookTool
             Search formSearch = new Search();
             formSearch.Show();
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

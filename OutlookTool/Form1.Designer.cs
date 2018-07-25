@@ -36,7 +36,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(13, 13);
+            this.label1.Location = new System.Drawing.Point(13, 12);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(93, 16);
             this.label1.TabIndex = 0;
@@ -44,9 +44,9 @@
             // 
             // btnShowSearch
             // 
-            this.btnShowSearch.Location = new System.Drawing.Point(16, 48);
+            this.btnShowSearch.Location = new System.Drawing.Point(16, 44);
             this.btnShowSearch.Name = "btnShowSearch";
-            this.btnShowSearch.Size = new System.Drawing.Size(112, 23);
+            this.btnShowSearch.Size = new System.Drawing.Size(112, 21);
             this.btnShowSearch.TabIndex = 1;
             this.btnShowSearch.Text = "Search Tool";
             this.btnShowSearch.UseVisualStyleBackColor = true;
@@ -54,13 +54,14 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(310, 450);
+            this.ClientSize = new System.Drawing.Size(310, 415);
             this.Controls.Add(this.btnShowSearch);
             this.Controls.Add(this.label1);
             this.Name = "Form1";
             this.Text = "Outlook Tools";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

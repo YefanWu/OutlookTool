@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Windows.Forms;
+using System.Threading;
 using Outlook = Microsoft.Office.Interop.Outlook;
 
 namespace OutlookTool
@@ -21,17 +22,18 @@ namespace OutlookTool
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            //The full search function will migrate to Functions.cs and pull the folder object from GetFolders().
             Outlook.Application application = new Outlook.Application();
 
             var ns = application.Session;
-            var inbox = ns.GetDefaultFolder(Outlook.OlDefaultFolders.olFolderInbox);//Now we can only search in Inbox. Not subfolders.
-            var item = inbox.Items;
+            var SearchFolder = ns.GetDefaultFolder(Outlook.OlDefaultFolders.olFolderInbox);//Now we can only search in Inbox. Not subfolders.
+            var item = SearchFolder.Items;
             string searchFor = boxSearchfor.Text.Trim();
             List<string> subject = new List<string>();
 
             listResult.Columns.Add("Results");
 
-            foreach (var inboxitem in inbox.Items)
+            foreach (var inboxitem in SearchFolder.Items)
             {
                 if (inboxitem is Outlook.MailItem) //Item could be meeting invite etc...
                 {
@@ -75,37 +77,21 @@ namespace OutlookTool
 
         private void btnGetfolder_Click(object sender, EventArgs e)
         {
-            Outlook.Application app = new Outlook.Application();
-            var appNS = app.Session;
-            var folder = appNS.Folders;
-            Outlook.MAPIFolder theFolder;
-            var folderNS = folder.Session; //A folder namespace for the current session.
-            int folderCount;
+            GetFolderNames();
+        }
 
-            listBoxFolders.Items.Clear(); //Clear the listbox before update.
-            folders = folderNS.Folders; //Return all folders in the current session.
-            folderCount = folders.Count;
-            //the folder we get here is actually the Outlook datafile.
-            for (int i = 0; i < folderCount; i++)
+        private void btnTest_Click(object sender, EventArgs e)
+        {
+            try
             {
-                if (i == 0)
-                {
-                    theFolder = folders.GetFirst();
-                    listBoxFolders.Items.Add(theFolder.Name);
-                } else if (i > 0 && i < folderCount -1){
-                    theFolder = folders.GetNext();
-                    listBoxFolders.Items.Add(theFolder.Name);
-                }
-                else
-                {
-                    theFolder = folder.GetLast();
-                    listBoxFolders.Items.Add(theFolder.Name);
-                }
+                lbFolderCount.Text = GetFolders().ToString();
+                
             }
-
-            lbFolderCount.Visible = true;
-            lbFolderCount.Text = string.Format("We found {0} folders, please select search range.", folderCount.ToString());
-
+            catch (Exception)
+            {
+                
+            }
+            MessageBox.Show("break point", "Select Folder");
         }
     }
 }
