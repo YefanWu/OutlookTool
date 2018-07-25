@@ -35,6 +35,9 @@
             this.label4 = new System.Windows.Forms.Label();
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
+            this.btnGetfolder = new System.Windows.Forms.Button();
+            this.listBoxFolders = new System.Windows.Forms.ListBox();
+            this.lbFolderCount = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label2
@@ -86,7 +89,7 @@
             // btnSearch
             // 
             this.btnSearch.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.Location = new System.Drawing.Point(433, 404);
+            this.btnSearch.Location = new System.Drawing.Point(106, 404);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(75, 23);
             this.btnSearch.TabIndex = 7;
@@ -97,7 +100,7 @@
             // btnClear
             // 
             this.btnClear.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClear.Location = new System.Drawing.Point(319, 404);
+            this.btnClear.Location = new System.Drawing.Point(12, 404);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(75, 23);
             this.btnClear.TabIndex = 8;
@@ -105,11 +108,44 @@
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
+            // btnGetfolder
+            // 
+            this.btnGetfolder.Location = new System.Drawing.Point(535, 61);
+            this.btnGetfolder.Name = "btnGetfolder";
+            this.btnGetfolder.Size = new System.Drawing.Size(128, 23);
+            this.btnGetfolder.TabIndex = 10;
+            this.btnGetfolder.Text = "Get Folder Name";
+            this.btnGetfolder.UseVisualStyleBackColor = true;
+            this.btnGetfolder.Click += new System.EventHandler(this.btnGetfolder_Click);
+            // 
+            // listBoxFolders
+            // 
+            this.listBoxFolders.FormattingEnabled = true;
+            this.listBoxFolders.Location = new System.Drawing.Point(535, 91);
+            this.listBoxFolders.Name = "listBoxFolders";
+            this.listBoxFolders.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
+            this.listBoxFolders.Size = new System.Drawing.Size(180, 290);
+            this.listBoxFolders.TabIndex = 11;
+            // 
+            // lbFolderCount
+            // 
+            this.lbFolderCount.AutoSize = true;
+            this.lbFolderCount.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbFolderCount.Location = new System.Drawing.Point(432, 404);
+            this.lbFolderCount.Name = "lbFolderCount";
+            this.lbFolderCount.Size = new System.Drawing.Size(41, 15);
+            this.lbFolderCount.TabIndex = 12;
+            this.lbFolderCount.Text = "label1";
+            this.lbFolderCount.Visible = false;
+            // 
             // Search
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(524, 450);
+            this.ClientSize = new System.Drawing.Size(765, 450);
+            this.Controls.Add(this.lbFolderCount);
+            this.Controls.Add(this.listBoxFolders);
+            this.Controls.Add(this.btnGetfolder);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.label4);
@@ -133,5 +169,8 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.Button btnGetfolder;
+        private System.Windows.Forms.ListBox listBoxFolders;
+        private System.Windows.Forms.Label lbFolderCount;
     }
 }

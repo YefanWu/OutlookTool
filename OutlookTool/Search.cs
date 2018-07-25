@@ -8,7 +8,7 @@ namespace OutlookTool
 {
     public partial class Search : Form
     {
-
+        Outlook.Folders folders; //All folders.
         public Search()
         {
             InitializeComponent();
@@ -68,7 +68,44 @@ namespace OutlookTool
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-            listResult.Clear();
+            listResult.Clear(); //Clear results
+            listBoxFolders.ClearSelected(); //Clear seleted folders. The complete will be cleared when get folders.
+            lbFolderCount.Visible = false; //Hide the text under folder list box.
+        }
+
+        private void btnGetfolder_Click(object sender, EventArgs e)
+        {
+            Outlook.Application app = new Outlook.Application();
+            var appNS = app.Session;
+            var folder = appNS.Folders;
+            Outlook.MAPIFolder theFolder;
+            var folderNS = folder.Session; //A folder namespace for the current session.
+            int folderCount;
+
+            listBoxFolders.Items.Clear(); //Clear the listbox before update.
+            folders = folderNS.Folders; //Return all folders in the current session.
+            folderCount = folders.Count;
+            //the folder we get here is actually the Outlook datafile.
+            for (int i = 0; i < folderCount; i++)
+            {
+                if (i == 0)
+                {
+                    theFolder = folders.GetFirst();
+                    listBoxFolders.Items.Add(theFolder.Name);
+                } else if (i > 0 && i < folderCount -1){
+                    theFolder = folders.GetNext();
+                    listBoxFolders.Items.Add(theFolder.Name);
+                }
+                else
+                {
+                    theFolder = folder.GetLast();
+                    listBoxFolders.Items.Add(theFolder.Name);
+                }
+            }
+
+            lbFolderCount.Visible = true;
+            lbFolderCount.Text = string.Format("We found {0} folders, please select search range.", folderCount.ToString());
+
         }
     }
 }
